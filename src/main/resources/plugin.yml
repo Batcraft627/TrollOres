@@ -1,0 +1,5 @@
+name: TrollOres
+version: ${project.version}
+main: tk.batcraft627.trollores.trollores.TrollOres
+api-version: 1.13
+authors: [batcraft627]
