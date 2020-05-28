@@ -12,7 +12,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 import tk.batcraft627.trollores.trollores.TrollOres;
 
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class BlockBreak implements Listener
 {
@@ -35,14 +35,17 @@ public class BlockBreak implements Listener
                             {
                                 return;
                             }
-        loc.getWorld().playSound(loc, Sound.ENTITY_CREEPER_PRIMED, 1.0F, 1.0F);
-        new BukkitRunnable()
-        {
-
-            public void run()
+        int randomNum = ThreadLocalRandom.current().nextInt(1,1000 +1);
+        if (randomNum >= 900){
+            loc.getWorld().playSound(loc, Sound.ENTITY_CREEPER_PRIMED, 1.0F, 1.0F);
+            new BukkitRunnable()
             {
-                world.createExplosion(loc.getX(),loc.getY(),loc.getZ(),10F);
-            }
-        }.runTaskLater(TrollOres.getPlugin(TrollOres.class), 60);
+
+                public void run()
+                {
+                    world.createExplosion(loc.getX(),loc.getY(),loc.getZ(),10F);
+                }
+            }.runTaskLater(TrollOres.getPlugin(TrollOres.class), 60);
+        }
     }
 }
