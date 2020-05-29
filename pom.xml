@@ -6,7 +6,7 @@
 
     <groupId>tk.batcraft627.TrollOres</groupId>
     <artifactId>TrollOres</artifactId>
-    <version>1.2-BETA</version>
+    <version>1.0</version>
     <packaging>jar</packaging>
 
     <name>TrollOres</name>

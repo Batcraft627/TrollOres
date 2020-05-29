@@ -38,16 +38,17 @@ public class BlockBreak implements Listener
         int randomNum = ThreadLocalRandom.current().nextInt(1,1000 +1);
         if (randomNum >= 900){
             loc.getWorld().playSound(loc, Sound.ENTITY_CREEPER_PRIMED, 1.0F, 1.0F);
-            if (randomNum >= 995){
+            if (randomNum >= 990){
                 new BukkitRunnable()
                 {
 
                     public void run()
                     {
-                        world.createExplosion(loc.getX(),loc.getY(),loc.getZ(),10F);
+                        world.createExplosion(loc.getX(),loc.getY(),loc.getZ(),3F);
                     }
                 }.runTaskLater(TrollOres.getPlugin(TrollOres.class), 60);
             }
         }
+        player.sendMessage("The random number is ..."  + randomNum);
     }
 }
